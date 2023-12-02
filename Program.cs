@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-
 using AoC2023;
 
 string day = args.Length > 0 ? args[0] : DateTime.Now.ToString("dd");
