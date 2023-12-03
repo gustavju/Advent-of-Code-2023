@@ -196,4 +196,7 @@ public static partial class Extensions
 
         return result;
     }
+
+    public static bool IsInBounds<T>(this T[][] matrix, int r, int c)
+        => r < matrix.Length && r >= 0 && c < matrix[0].Length && c >= 0;
 }

@@ -44,12 +44,13 @@ public class Day3 : IDay
 
     private bool IsNextToSymbol(int r, int c, char[][] matrix)
     {
-        foreach (var (rr, cc) in adjacent)
+        foreach (var (ar, ac) in adjacent)
         {
-            if (
-                r + rr < matrix.Length && r + rr >= 0 &&
-                c + cc < matrix[0].Length && c + cc >= 0 &&
-                matrix[r + rr][c + cc] != '.' && !char.IsDigit(matrix[r + rr][c + cc]))
+            var rr = r + ar;
+            var cc = c + ac;
+            if (matrix.IsInBounds(rr, cc) &&
+                matrix[rr][cc] != '.' &&
+                !char.IsDigit(matrix[rr][cc]))
             {
                 return true;
             }
@@ -61,12 +62,9 @@ public class Day3 : IDay
     {
         foreach (var (ar, ac) in adjacent)
         {
-            var rr = r + ar; 
-            var cc = c + ac; 
-            if (
-                rr < matrix.Length && rr >= 0 &&
-                cc < matrix[0].Length && cc >= 0 &&
-                matrix[rr][cc] == '*')
+            var rr = r + ar;
+            var cc = c + ac;
+            if (matrix.IsInBounds(rr, cc) && matrix[rr][cc] == '*')
             {
                 return (rr, cc);
             }
