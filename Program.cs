@@ -20,9 +20,7 @@ void RunPart(bool partOne)
     Stopwatch sw = Stopwatch.StartNew();
     string resultFromPart = partOne ? dayClass.PartOne(input) : dayClass.PartTwo(input);
     sw.Stop();
-    Console.WriteLine(
-@$"--------------------------------
+    Console.WriteLine(@$"--------------------------------
 Result {(partOne ? "1" : "2")}: {resultFromPart}, Time taken: {sw.ElapsedMilliseconds}ms
---------------------------------
-");
+--------------------------------");
 }

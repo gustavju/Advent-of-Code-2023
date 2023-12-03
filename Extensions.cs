@@ -12,7 +12,7 @@ public static partial class Extensions
             throw new ArgumentException("the string to find may not be empty", nameof(value));
         }
 
-        List<int> indexes = new();
+        List<int> indexes = [];
         for (int index = 0; ; index += value.Length)
         {
             index = str.IndexOf(value, index);
@@ -33,7 +33,7 @@ public static partial class Extensions
 
         List<T> list = sequence.ToList();
 
-        if (!list.Any())
+        if (list.Count == 0)
         {
             yield return Enumerable.Empty<T>();
         }
