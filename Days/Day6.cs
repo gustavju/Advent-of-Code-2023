@@ -1,7 +1,4 @@
-﻿using System.Formats.Asn1;
-using System.Runtime.InteropServices.Marshalling;
-
-namespace AoC2023;
+﻿namespace AoC2023;
 
 public class Day6 : IDay
 {

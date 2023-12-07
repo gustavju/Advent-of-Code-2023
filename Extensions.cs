@@ -136,9 +136,9 @@ public static partial class Extensions
         return builder.ToString();
     }
 
-    public static IEnumerable<string> Lines(this string input)
+    public static IEnumerable<string> Lines(this string input, bool keepEmptyLines = false)
     {
-        foreach (var line in input.Split(Environment.NewLine).Where(l => !string.IsNullOrEmpty(l.Trim())))
+        foreach (var line in input.Split(Environment.NewLine).Where(l => keepEmptyLines || !string.IsNullOrEmpty(l.Trim())))
         {
             yield return line;
         }
@@ -167,6 +167,9 @@ public static partial class Extensions
 
     public static IEnumerable<int> Ints(this string line) =>
         IntRegex().Matches(line).Select(m => m.Value).Select(int.Parse);
+
+    public static IEnumerable<long> Longs(this string line) =>
+        IntRegex().Matches(line).Select(m => m.Value).Select(long.Parse);
 
     public static int Mod(this int x, int mod) => ((x % mod) + mod) % mod;
 
