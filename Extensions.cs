@@ -152,6 +152,32 @@ public static partial class Extensions
         }
     }
 
+    private static long Gcd(long a, long b)
+    {
+        while (b != 0)
+        {
+            long t = b;
+            b = a % b;
+            a = t;
+        }
+        return a;
+    }
+
+    private static long Lcm(long a, long b)
+    {
+        return (a / Gcd(a, b)) * b;
+    }
+
+    public static long LeastCommonMultiple(this IEnumerable<int> numbers)
+    {
+        long result = numbers.First();
+        for (int i = 1; i < numbers.Count(); i++)
+        {
+            result = Lcm(result, numbers.ElementAt(i));
+        }
+        return result;
+    }
+
     public static int LowestCommonMultiple(this IEnumerable<int> source)
     {
         int lcm = 1;

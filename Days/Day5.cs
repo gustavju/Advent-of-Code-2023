@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography;
-
-namespace AoC2023;
+﻿namespace AoC2023;
 
 public class Day5 : IDay
 {
