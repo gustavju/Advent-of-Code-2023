@@ -32,9 +32,12 @@ public class Day15 : IDay
         foreach (var seqStep in sequenceSteps)
         {
             int index = boxes[seqStep.Hash].FindIndex(x => x.Label == seqStep.Label);
-            if (seqStep.OpCode == '-' && index != -1) boxes[seqStep.Hash].RemoveAt(index);
-            if (seqStep.OpCode == '=' && index == -1) boxes[seqStep.Hash].Add((seqStep.Label, seqStep.Power));
-            if (seqStep.OpCode == '=' && index != -1) boxes[seqStep.Hash][index] = (seqStep.Label, seqStep.Power);
+            if (seqStep.OpCode == '-' && index != -1)
+                boxes[seqStep.Hash].RemoveAt(index);
+            if (seqStep.OpCode == '=' && index == -1)
+                boxes[seqStep.Hash].Add((seqStep.Label, seqStep.Power));
+            if (seqStep.OpCode == '=' && index != -1)
+                boxes[seqStep.Hash][index] = (seqStep.Label, seqStep.Power);
         }
 
         return boxes.Select((box, boxIdx) => box.Select((lens, lensIdx) => (1 + boxIdx) * (1 + lensIdx) * lens.power).Sum()).Sum().ToString();
