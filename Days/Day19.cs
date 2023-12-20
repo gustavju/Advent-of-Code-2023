@@ -125,6 +125,8 @@ public class Day19 : IDay
             return 0;
 
         long result = 0;
+        
+        #pragma warning disable CS8602 // Dereference of a possibly null reference.
         foreach (var rule in flows[currentRule].Rules)
         {
             var (min, max) = string.IsNullOrEmpty(rule.VarName) ? (0, 0) : ranges[rule.VarName];
@@ -165,6 +167,7 @@ public class Day19 : IDay
                 result += CalcRanges(rule.NextRule, ranges);
             }
         }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         return result;
     }
 }
