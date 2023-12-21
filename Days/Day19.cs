@@ -65,7 +65,7 @@ public class Day19 : IDay
         public List<Rule> Rules { get; set; } = new();
     }
 
-    private bool IsOK(Dictionary<string, Flow> flows, Entry entry)
+    private static bool IsOK(Dictionary<string, Flow> flows, Entry entry)
     {
         var currentRule = "in";
         while (true)
@@ -167,7 +167,7 @@ public class Day19 : IDay
                 result += CalcRanges(rule.NextRule, ranges);
             }
         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
+        #pragma warning restore CS8602 // Dereference of a possibly null reference.
         return result;
     }
 }
